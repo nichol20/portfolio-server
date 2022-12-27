@@ -38,7 +38,11 @@ app.post('/email', async (req, res) => {
       from: `${name} <${email}>`, 
       to: process.env.RECIPIENT_EMAIL, 
       subject: String(subject), 
-      text: String(message)
+      text: `
+        from: ${name} <${email}> 
+        message:
+        ${message}
+      `
     });
     console.log("Message sent: %s", info.messageId);
     return res.status(200).json({ message: 'Send successfully'})
