@@ -17,7 +17,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).send("Something broke!");
 });
 
-app.get("/", cors({ origin: "*" }), (req, res) => {
+app.get("/", (req, res) => {
   return res.send("My portfolio server🥵🥶🤡");
 });
 
